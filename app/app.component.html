@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <td>S.No</td>
+    <td>
+      <div class="flex just-cont-space-btwn align-items-center">
+        <p>Structure</p>
+        <button (click)="AddRow()">+</button>
+      </div>
+    </td>
+    <td>Count</td>
+  </tr>
+  <tr (click)="expanded(item)" *ngFor="let item of items">
+    <td>{{ item.index + 1 }}</td>
+    <td [style.padding-left]="item.index * 20 + 'px'">
+      <div style="display:flex;gap:15px;margin-left:10px;align-items:center;">
+        <p>{{ item.name }}</p>
+        <button
+          (click)="AddChild($event, item)"
+          style="margin-right:10px;border"
+        >
+          +
+        </button>
+      </div>
+    </td>
+    <td>
+      {{ item.count }}
+    </td>
+  </tr>
+</table>
