@@ -1,40 +1,59 @@
-<table>
-  <tr>
-    <td>S.No</td>
-    <td>
-      <div class="flex just-cont-space-btwn align-items-center">
-        <p>Structure</p>
-        <button (click)="AddRow()">+</button>
-      </div>
-    </td>
-    <td>Count</td>
-  </tr>
-  <tr (click)="expanded(item)" *ngFor="let item of items">
-    <td>{{ item.index + 1 }}</td>
-    <td [style.padding-left]="item.index * 20 + 'px'">
-      <ng-container *ngIf="item.name.length; else showInput">
-        <div style="display:flex;gap:15px;margin-left:10px;align-items:center;">
-          <p>{{ item.name }}</p>
-          <button
-            (click)="AddChild($event, item)"
-            style="margin-right:10px;border"
-          >
-            +
-          </button>
-        </div>
-      </ng-container>
-      <ng-template #showInput>
-        <input type="text" [value]="title" (input)="AddName($event)" />
-        <button
-          (click)="changeName($event, item)"
-          style="margin-right:10px;border"
-        >
-          +
-        </button>
-      </ng-template>
-    </td>
-    <td>
-      {{ item.count }}
-    </td>
-  </tr>
-</table>
+<div style="margin-top:50px">
+  <table
+    style="width:90%;margin-left:auto;margin-right:auto;margin-bottom:50px;"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <div class="flex just-cont-space-btwn align-items-center">
+            <p>Structure</p>
+            <button (click)="AddRow()">+</button>
+          </div>
+        </td>
+        <td style="min-width:100px;">Count</td>
+      </tr>
+      <tr
+        style="transition:height 5s ease"
+        (click)="expanded(item)"
+        *ngFor="let item of items"
+      >
+        <td [style.padding-left]="item.index * 40 + 'px'">
+          <ng-container *ngIf="item.name.length; else showInput">
+            <div
+              style="display:flex;gap:10px;margin-left:10px;align-items:center;"
+            >
+              <span
+                *ngIf="item.children.length"
+                class="material-symbols-outlined"
+                style="font-size:21px;margin-right:-10px;margin-left:-5px;"
+              >
+                {{ item.isInExpandState ? 'expand_more' : 'chevron_right' }}
+              </span>
+              <p>{{ item.name }}</p>
+              <button (click)="AddChild($event, item)">Add</button>
+              <button (click)="deleteItem($event, item)">Delete</button>
+              <button (click)="EditItem($event, item)">Edit</button>
+            </div>
+          </ng-container>
+          <ng-template #showInput>
+            <input
+              class="form-control"
+              type="text"
+              [value]="title"
+              (input)="AddName($event)"
+            />
+            <button
+              (click)="changeName($event, item)"
+              style="margin-right:10px;border"
+            >
+              +
+            </button>
+          </ng-template>
+        </td>
+        <td>
+          {{ item.count }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { INTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser/src/browser';
+import { nanoid } from 'nanoid';
 
 export let propertyModel: Object[] = [
   {
@@ -85,6 +87,7 @@ export let propertyModel: Object[] = [
     ],
   },
 ];
+export let prop: Object[] = [];
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -114,7 +117,7 @@ export let propertyModel: Object[] = [
   ],
 })
 export class AppComponent implements OnInit {
-  sampleData = propertyModel;
+  sampleData = prop;
   items: any[];
   title: String;
   ngOnInit() {
@@ -125,7 +128,7 @@ export class AppComponent implements OnInit {
     this.items = this.getItems(this.sampleData, null, 0);
   }
   expanded(item: any) {
-    item.expanded = !item.expanded;
+    item.isInExpandState = !item.isInExpandState;
     this.items = this.getItems(this.sampleData, null, 0);
   }
   getItems(data, items, index) {
@@ -133,38 +136,39 @@ export class AppComponent implements OnInit {
       if (!items) items = [];
       items.push(x);
       items[items.length - 1].index = index;
-      if (x.children && x.expanded) this.getItems(x.children, items, index + 1);
+      if (x.children && x.isInExpandState)
+        this.getItems(x.children, items, index + 1);
     });
     return items;
   }
   AddChild(event, item) {
     event.stopPropagation();
     let x = {
-      id: item.id + item.level,
-      level: item.level + 1,
+      id: nanoid(),
+      parentId: item.id,
       name: '',
       count: 0,
       isInExpandState: false,
       children: [],
     };
     item.children.push(x);
-    if (!item.expanded) this.expanded(item);
+    if (!item.isInExpandState) this.expanded(item);
     else {
       this.items = this.getItems(this.sampleData, null, 0);
     }
-    console.log(event, item);
   }
   AddRow() {
     let x = {
-      id: 'new',
-      level: 0,
+      id: nanoid(),
+      parentId: '0',
       name: '',
       count: 0,
       isInExpandState: false,
       children: [],
     };
-    propertyModel.push(x);
+    prop.push(x);
     this.showItems();
+    console.log(this.items);
   }
   AddName(event) {
     this.title = event.target.value;
@@ -172,5 +176,28 @@ export class AppComponent implements OnInit {
   changeName(event, item) {
     item.name = this.title;
   }
-  RemoveItem(item) {}
+  deleteItem(event, item) {
+    event.stopPropagation();
+    this.findParentAndRemoveChild(prop, item.parentId, item.id);
+    this.sampleData = prop;
+    this.showItems();
+  }
+  findParentAndRemoveChild(list, parentId, ItemId) {
+    let spliceIndx = -1;
+    list.forEach((e, j) => {
+      if (e.parentId == '0' && e.id == ItemId) {
+        spliceIndx = j;
+        return list.splice(spliceIndx, 1);
+      }
+      if (e.id == parentId) {
+        e.children.forEach((el, i) => {
+          if (el.id == ItemId) {
+            spliceIndx = i;
+          }
+        });
+        return e.children.splice(spliceIndx, 1);
+      }
+      return this.findParentAndRemoveChild(e.children, parentId, ItemId);
+    });
+  }
 }
