@@ -7,16 +7,14 @@
         <td>
           <div class="flex just-cont-space-btwn align-items-center">
             <p>Structure</p>
-            <button (click)="AddRow()">+</button>
+            <button class="btn btn-outline-dark me-3" (click)="AddRow()">
+              +
+            </button>
           </div>
         </td>
         <td style="min-width:100px;">Count</td>
       </tr>
-      <tr
-        style="transition:height 5s ease"
-        (click)="expanded(item)"
-        *ngFor="let item of items"
-      >
+      <tr (click)="expanded(item)" *ngFor="let item of items">
         <td [style.padding-left]="item.index * 40 + 'px'">
           <ng-container *ngIf="item.name.length; else showInput">
             <div
@@ -30,28 +28,68 @@
                 {{ item.isInExpandState ? 'expand_more' : 'chevron_right' }}
               </span>
               <p>{{ item.name }}</p>
-              <button (click)="AddChild($event, item)">Add</button>
-              <button (click)="deleteItem($event, item)">Delete</button>
-              <button (click)="EditItem($event, item)">Edit</button>
+              <button
+                class="btn btn-outline-dark"
+                (click)="AddChild($event, item)"
+              >
+                Add
+              </button>
+              <button
+                class="btn btn-outline-dark"
+                (click)="deleteItem($event, item)"
+              >
+                Delete
+              </button>
+              <button
+                class="btn btn-outline-dark"
+                (click)="EditItem($event, item)"
+              >
+                Edit
+              </button>
             </div>
           </ng-container>
           <ng-template #showInput>
-            <input
-              class="form-control"
-              type="text"
-              [value]="title"
-              (input)="AddName($event)"
-            />
-            <button
-              (click)="changeName($event, item)"
-              style="margin-right:10px;border"
-            >
-              +
-            </button>
+            <div style="display:flex;gap:5px;align-items:center">
+              <input
+                class="form-control"
+                style="width:200px;margin:15px"
+                type="text"
+                [value]="title"
+                (input)="AddName($event)"
+              />
+              <button
+                class="btn btn-outline-dark me-3"
+                (click)="changeName($event, item)"
+                style="margin-right:10px;"
+              >
+                +
+              </button>
+            </div>
           </ng-template>
         </td>
         <td>
-          {{ item.count }}
+          <ng-container *ngIf="item.count != null; else showCountInput">{{
+            item.count
+          }}</ng-container>
+          <ng-template #showCountInput>
+            <div style="display:flex;gap:5px;align-items:center">
+              <input
+                class="form-control"
+                style="min-width:50px;margin:15px"
+                type="text"
+                [value]="title"
+                pattern="[0-9]"
+                (input)="AddCount($event)"
+              />
+              <button
+                class="btn btn-outline-dark me-3"
+                (click)="changeCount($event, item)"
+                style="margin-right:10px;"
+              >
+                +
+              </button>
+            </div>
+          </ng-template>
         </td>
       </tr>
     </tbody>

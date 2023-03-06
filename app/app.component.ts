@@ -162,7 +162,7 @@ export class AppComponent implements OnInit {
       id: nanoid(),
       parentId: '0',
       name: '',
-      count: 0,
+      count: null,
       isInExpandState: false,
       children: [],
     };
