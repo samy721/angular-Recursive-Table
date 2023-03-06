@@ -72,7 +72,10 @@
             item.count
           }}</ng-container>
           <ng-template #showCountInput>
-            <div style="display:flex;gap:5px;align-items:center">
+            <div
+              (click)="stopBubble($event)"
+              style="display:flex;gap:5px;align-items:center"
+            >
               <input
                 class="form-control"
                 style="min-width:50px;margin:15px"

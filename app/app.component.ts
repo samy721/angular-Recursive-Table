@@ -200,4 +200,7 @@ export class AppComponent implements OnInit {
       return this.findParentAndRemoveChild(e.children, parentId, ItemId);
     });
   }
+  stopBubble(event) {
+    event.stopPropagation();
+  }
 }
