@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 export let propertyModel: Object[] = [
   {
     id: 'RTA',
-    level: '0',
+    level: 0,
     name: 'Residential Tower A',
     isInExpandState: true,
     count: 2,
     children: [
       {
         id: 'PFG',
-        level: '0.1',
+        level: 1,
         name: 'Podium Floor Ground',
         count: 1,
         isInExpandState: false,
@@ -98,7 +98,7 @@ export let propertyModel: Object[] = [
          margin-bottom:1rem;
        }
        tr, td {
-         border: 1px solid black;
+         box-shadow:0 0 1px 0 rgb(0,0,0);
          padding-left:10px;
        }
        .flex {
@@ -116,10 +116,14 @@ export let propertyModel: Object[] = [
 export class AppComponent implements OnInit {
   sampleData = propertyModel;
   items: any[];
+  title: String;
   ngOnInit() {
     this.items = this.getItems(this.sampleData, null, 0);
+    this.title = '';
   }
-
+  showItems() {
+    this.items = this.getItems(this.sampleData, null, 0);
+  }
   expanded(item: any) {
     item.expanded = !item.expanded;
     this.items = this.getItems(this.sampleData, null, 0);
@@ -138,12 +142,35 @@ export class AppComponent implements OnInit {
     let x = {
       id: item.id + item.level,
       level: item.level + 1,
-      name: 'Hello',
+      name: '',
       count: 0,
-      isInExpandState: true,
+      isInExpandState: false,
       children: [],
     };
-    pushItem(item.level, item.index, x);
+    item.children.push(x);
+    if (!item.expanded) this.expanded(item);
+    else {
+      this.items = this.getItems(this.sampleData, null, 0);
+    }
     console.log(event, item);
   }
+  AddRow() {
+    let x = {
+      id: 'new',
+      level: 0,
+      name: '',
+      count: 0,
+      isInExpandState: false,
+      children: [],
+    };
+    propertyModel.push(x);
+    this.showItems();
+  }
+  AddName(event) {
+    this.title = event.target.value;
+  }
+  changeName(event, item) {
+    item.name = this.title;
+  }
+  RemoveItem(item) {}
 }

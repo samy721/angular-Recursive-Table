@@ -12,15 +12,26 @@
   <tr (click)="expanded(item)" *ngFor="let item of items">
     <td>{{ item.index + 1 }}</td>
     <td [style.padding-left]="item.index * 20 + 'px'">
-      <div style="display:flex;gap:15px;margin-left:10px;align-items:center;">
-        <p>{{ item.name }}</p>
+      <ng-container *ngIf="item.name.length; else showInput">
+        <div style="display:flex;gap:15px;margin-left:10px;align-items:center;">
+          <p>{{ item.name }}</p>
+          <button
+            (click)="AddChild($event, item)"
+            style="margin-right:10px;border"
+          >
+            +
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #showInput>
+        <input type="text" [value]="title" (input)="AddName($event)" />
         <button
-          (click)="AddChild($event, item)"
+          (click)="changeName($event, item)"
           style="margin-right:10px;border"
         >
           +
         </button>
-      </div>
+      </ng-template>
     </td>
     <td>
       {{ item.count }}
