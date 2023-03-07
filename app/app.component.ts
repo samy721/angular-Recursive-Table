@@ -179,6 +179,7 @@ export class AppComponent implements OnInit {
   deleteItem(event, item) {
     event.stopPropagation();
     this.findParentAndRemoveChild(prop, item.parentId, item.id);
+    console.log(prop);
     this.sampleData = prop;
     this.showItems();
   }
@@ -210,7 +211,7 @@ export class AppComponent implements OnInit {
       parentId: item.id,
       name: '',
       count: 0,
-      isInExpandState: false,
+      isInExpandState: true,
       children: [],
     };
     this.findItemInMainList(prop, item.id, x);
@@ -225,10 +226,10 @@ export class AppComponent implements OnInit {
         newParent.children = childList;
         e.children = [];
         e.children.push(newParent);
-        return e.children;
+        return list;
       }
+      return this.findItemInMainList(e.children, ItemId, newParent);
     });
-    return this.findItemInMainList(list.children, ItemId, newParent);
   }
   copyItemChildren(list, Parent) {
     let newList = list.map((e) => {
