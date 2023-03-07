@@ -15,7 +15,7 @@ export let propertyModel: Object[] = [
         level: 1,
         name: 'Podium Floor Ground',
         count: 1,
-        isInExpandState: false,
+        isInExpandState: true,
         children: [],
       },
       {
@@ -23,7 +23,7 @@ export let propertyModel: Object[] = [
         level: 1,
         name: 'Podium Floors',
         count: 3,
-        isInExpandState: false,
+        isInExpandState: true,
         children: [],
       },
       {
@@ -31,21 +31,21 @@ export let propertyModel: Object[] = [
         level: 1,
         name: 'Floors',
         count: 60,
-        isInExpandState: false,
+        isInExpandState: true,
         children: [
           {
             id: 'Flats_012',
             level: 2,
             name: 'Flats',
             count: 1,
-            isInExpandState: false,
+            isInExpandState: true,
             children: [
               {
                 id: 'fgdf',
                 level: 3,
                 name: '1 BHK',
                 count: 3,
-                isInExpandState: false,
+                isInExpandState: true,
                 children: [],
               },
               {
@@ -53,7 +53,7 @@ export let propertyModel: Object[] = [
                 level: 3,
                 name: '2 BHK',
                 count: 3,
-                isInExpandState: false,
+                isInExpandState: true,
                 children: [],
               },
               {
@@ -61,7 +61,7 @@ export let propertyModel: Object[] = [
                 level: 3,
                 name: '3 BHK',
                 count: 3,
-                isInExpandState: false,
+                isInExpandState: true,
                 children: [],
               },
             ],
@@ -71,7 +71,7 @@ export let propertyModel: Object[] = [
             level: 1,
             name: 'Lifts',
             count: 1,
-            isInExpandState: false,
+            isInExpandState: true,
             children: [],
           },
           {
@@ -79,7 +79,7 @@ export let propertyModel: Object[] = [
             level: 1,
             name: 'Staircase',
             count: 1,
-            isInExpandState: false,
+            isInExpandState: true,
             children: [],
           },
         ],
@@ -203,4 +203,38 @@ export class AppComponent implements OnInit {
   stopBubble(event) {
     event.stopPropagation();
   }
+  Indent(event, item) {
+    event.stopPropagation();
+    let x = {
+      id: nanoid(),
+      parentId: item.id,
+      name: '',
+      count: 0,
+      isInExpandState: false,
+      children: [],
+    };
+    this.findItemInMainList(prop, item.id, x);
+    this.sampleData = prop;
+    this.showItems();
+  }
+  findItemInMainList(list, ItemId, newParent) {
+    console.log(list);
+    list.forEach((e) => {
+      if (e.id == ItemId) {
+        let childList = this.copyItemChildren(e.children, newParent);
+        newParent.children = childList;
+        e.children = [];
+        e.children.push(newParent);
+        return e.children;
+      }
+    });
+    return this.findItemInMainList(list.children, ItemId, newParent);
+  }
+  copyItemChildren(list, Parent) {
+    let newList = list.map((e) => {
+      return { ...e, parentId: Parent.id };
+    });
+    return newList;
+  }
+  UnIndent(event, item) {}
 }

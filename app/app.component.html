@@ -14,7 +14,7 @@
         </td>
         <td style="min-width:100px;">Count</td>
       </tr>
-      <tr (click)="expanded(item)" *ngFor="let item of items">
+      <tr class="jumbotron" (click)="expanded(item)" *ngFor="let item of items">
         <td [style.padding-left]="item.index * 40 + 'px'">
           <ng-container *ngIf="item.name.length; else showInput">
             <div
@@ -46,6 +46,20 @@
               >
                 Edit
               </button>
+              <button
+                *ngIf="item.children.length"
+                class="btn btn-outline-dark"
+                (click)="Indent($event, item)"
+              >
+                Indent
+              </button>
+              <button
+                *ngIf="item.parentId != '0'"
+                class="btn btn-outline-dark"
+                (click)="UnIndent($event, item)"
+              >
+                UnIndent
+              </button>
             </div>
           </ng-container>
           <ng-template #showInput>
@@ -74,11 +88,11 @@
           <ng-template #showCountInput>
             <div
               (click)="stopBubble($event)"
-              style="display:flex;gap:5px;align-items:center"
+              style="display:flex;gap:5px;align-items:center;justify-content:center;"
             >
               <input
                 class="form-control"
-                style="min-width:50px;margin:15px"
+                style="max-width:150px;margin:15px"
                 type="text"
                 [value]="title"
                 pattern="[0-9]"
