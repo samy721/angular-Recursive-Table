@@ -190,11 +190,11 @@ export class AppComponent implements OnInit {
   UnIndent(event, item) {
     event.stopPropagation();
     this.findParentAndRemoveChild(prop, item.parentId, item.id);
-    this.shiftItemByOneLevel(prop, item.parentId, item);
+    this.shiftItemByOneLevelUp(prop, item.parentId, item);
     this.sampleData = prop;
     this.showItems();
   }
-  shiftItemByOneLevel(list, parentId, item) {
+  shiftItemByOneLevelUp(list, parentId, item) {
     list.forEach((e, i) => {
       if (e.id == parentId) {
         item.parentId = e.parentId;
@@ -203,7 +203,7 @@ export class AppComponent implements OnInit {
         }
         return;
       }
-      this.shiftItemByOneLevel(e.children, parentId, item);
+      this.shiftItemByOneLevelUp(e.children, parentId, item);
       if (item.parentId == e.id) {
         e.children.push(item);
         return;
