@@ -76,7 +76,7 @@
                     </span>
                   </div>
                   <div
-                    *ngIf="item.parentId != '0'"
+                    *ngIf="item.parentId != null"
                     (click)="UnIndent($event, item)"
                     class="item d-flex align-items-center gap-15"
                   >
@@ -91,7 +91,10 @@
               </div>
             </ng-container>
             <ng-template #showInput>
-              <div style="display:flex;gap:5px;align-items:center">
+              <div
+                (click)="stopBubble($event)"
+                style="display:flex;gap:5px;align-items:center"
+              >
                 <input
                   class="form-control"
                   style="width:200px;margin:15px"

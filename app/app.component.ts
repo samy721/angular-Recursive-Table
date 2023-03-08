@@ -196,7 +196,7 @@ export class AppComponent implements OnInit {
   AddRow() {
     let x = {
       id: nanoid(),
-      parentId: '0',
+      parentId: null,
       name: '',
       count: null,
       isInExpandState: false,
@@ -209,6 +209,7 @@ export class AppComponent implements OnInit {
     this.title = event.target.value;
   }
   changeName(event, item) {
+    event.stopPropagation();
     item.name = this.title;
   }
   deleteItem(event, item) {
@@ -221,7 +222,7 @@ export class AppComponent implements OnInit {
   findParentAndRemoveChild(list, parentId, ItemId) {
     let spliceIndx = -1;
     list.forEach((e, j) => {
-      if (e.parentId == '0' && e.id == ItemId) {
+      if (e.parentId == null && e.id == ItemId) {
         spliceIndx = j;
         return list.splice(spliceIndx, 1);
       }
@@ -254,7 +255,6 @@ export class AppComponent implements OnInit {
     this.showItems();
   }
   findItemInMainList(list, ItemId, newParent) {
-    console.log(list);
     list.forEach((e) => {
       if (e.id == ItemId) {
         let childList = this.copyItemChildren(e.children, newParent);
@@ -272,5 +272,27 @@ export class AppComponent implements OnInit {
     });
     return newList;
   }
-  UnIndent(event, item) {}
+  UnIndent(event, item) {
+    event.stopPropagation();
+    this.findParentAndRemoveChild(prop, item.parentId, item.id);
+    this.shiftItemByOneLevel(prop, item.parentId, item);
+    this.sampleData = prop;
+    this.showItems();
+  }
+  shiftItemByOneLevel(list, parentId, item) {
+    list.forEach((e, i) => {
+      if (e.id == parentId) {
+        item.parentId = e.parentId;
+        if (item.parentId == null) {
+          list.splice(i + 1, 0, item);
+        }
+        return;
+      }
+      this.shiftItemByOneLevel(e.children, parentId, item);
+      if (item.parentId == e.id) {
+        e.children.push(item);
+        return;
+      }
+    });
+  }
 }
