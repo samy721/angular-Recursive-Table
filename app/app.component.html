@@ -87,6 +87,18 @@
                       format_indent_decrease
                     </span>
                   </div>
+                  <div
+                    *ngIf="item.parentId != '0'"
+                    (click)="toggleExpand($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      format_indent_decrease
+                    </span>
+                  </div>
                 </div>
               </div>
             </ng-container>
