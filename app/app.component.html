@@ -14,72 +14,101 @@
         </td>
         <td style="min-width:100px;">Count</td>
       </tr>
-      <tr class="jumbotron" (click)="expanded(item)" *ngFor="let item of items">
+      <tr (click)="expanded(item)" *ngFor="let item of items">
         <td [style.padding-left]="item.index * 40 + 'px'">
-          <ng-container *ngIf="item.name.length; else showInput">
-            <div
-              style="display:flex;gap:10px;margin-left:10px;align-items:center;"
-            >
-              <span
-                *ngIf="item.children.length"
-                class="material-symbols-outlined"
-                style="font-size:21px;margin-right:-10px;margin-left:-5px;"
+          <div [id]="item.id">
+            <ng-container *ngIf="item.name.length; else showInput">
+              <div
+                style="display:flex;gap:10px;margin-left:10px;align-items:center;"
               >
-                {{ item.isInExpandState ? 'expand_more' : 'chevron_right' }}
-              </span>
-              <p>{{ item.name }}</p>
-              <button
-                class="btn btn-outline-dark"
-                (click)="AddChild($event, item)"
-              >
-                Add
-              </button>
-              <button
-                class="btn btn-outline-dark"
-                (click)="deleteItem($event, item)"
-              >
-                Delete
-              </button>
-              <button
-                class="btn btn-outline-dark"
-                (click)="EditItem($event, item)"
-              >
-                Edit
-              </button>
-              <button
-                *ngIf="item.children.length"
-                class="btn btn-outline-dark"
-                (click)="Indent($event, item)"
-              >
-                Indent
-              </button>
-              <button
-                *ngIf="item.parentId != '0'"
-                class="btn btn-outline-dark"
-                (click)="UnIndent($event, item)"
-              >
-                UnIndent
-              </button>
-            </div>
-          </ng-container>
-          <ng-template #showInput>
-            <div style="display:flex;gap:5px;align-items:center">
-              <input
-                class="form-control"
-                style="width:200px;margin:15px"
-                type="text"
-                [value]="title"
-                (input)="AddName($event)"
-              />
-              <button
-                class="btn btn-outline-dark me-3"
-                (click)="changeName($event, item)"
-                style="margin-right:10px;"
-              >
-                +
-              </button>
-            </div>
-          </ng-template>
+                <span
+                  *ngIf="item.children.length"
+                  class="material-symbols-outlined"
+                  style="font-size:21px;margin-right:-10px;margin-left:-5px;"
+                >
+                  {{ item.isInExpandState ? 'expand_more' : 'chevron_right' }}
+                </span>
+                <p style="font-size:18px;font-weight:500">{{ item.name }}</p>
+                <div class="context-menu" [id]="'context-menu' + item.id">
+                  <div
+                    (click)="AddChild($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      add
+                    </span>
+                  </div>
+                  <div
+                    (click)="deleteItem($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      delete
+                    </span>
+                  </div>
+                  <div
+                    (click)="EditItem($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      edit
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="item.children.length"
+                    (click)="Indent($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      format_indent_increase
+                    </span>
+                  </div>
+                  <div
+                    *ngIf="item.parentId != '0'"
+                    (click)="UnIndent($event, item)"
+                    class="item d-flex align-items-center gap-15"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="font-size:20px"
+                    >
+                      format_indent_decrease
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #showInput>
+              <div style="display:flex;gap:5px;align-items:center">
+                <input
+                  class="form-control"
+                  style="width:200px;margin:15px"
+                  type="text"
+                  [value]="title"
+                  (input)="AddName($event)"
+                />
+                <button
+                  class="btn btn-outline-dark me-3"
+                  (click)="changeName($event, item)"
+                  style="margin-right:10px;"
+                >
+                  +
+                </button>
+              </div>
+            </ng-template>
+          </div>
         </td>
         <td>
           <ng-container *ngIf="item.count != null; else showCountInput">{{

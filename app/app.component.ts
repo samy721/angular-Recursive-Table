@@ -113,7 +113,42 @@ export let prop: Object[] = [];
       .align-items-center {
         align-items: center;
       }
-       `,
+    .context-menu {
+      display:flex;
+      width: auto;
+      background: white;
+      border-radius: 5px;
+      padding: 2px 0px;
+      box-shadow: 0 0 1px 0 rgb(0 0 0 / 40%);
+    }
+    .context-menu .item{
+      padding: 4px 5px;
+      font-size: 15px;
+      color:black;
+      cursor:pointer;
+      border-radius: inherit;
+      transition:all .25s ease;
+    }
+    .context-menu .item:hover{
+      background: #343434;
+      color:white;
+    }
+    .d-flex{
+      display:flex;
+    }
+    .align-items-center{
+      align-items:center;
+    }
+    .justify-content-space-between{
+      justify-content:space-around;
+    }
+    .gap-15{
+      gap:15px;
+    }
+    .m-none{
+      margin:0;
+    }
+    `,
   ],
 })
 export class AppComponent implements OnInit {
@@ -151,6 +186,7 @@ export class AppComponent implements OnInit {
       isInExpandState: false,
       children: [],
     };
+
     item.children.push(x);
     if (!item.isInExpandState) this.expanded(item);
     else {
@@ -168,7 +204,6 @@ export class AppComponent implements OnInit {
     };
     prop.push(x);
     this.showItems();
-    console.log(this.items);
   }
   AddName(event) {
     this.title = event.target.value;
