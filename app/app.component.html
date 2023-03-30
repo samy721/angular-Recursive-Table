@@ -5,17 +5,18 @@
     <table class="table table-bordered">
       <thead style="position:sticky;background:blue;color:white;top:-1px">
         <tr>
-          <th style="width:80%" scope="col">Structure</th>
+          <th style="width:70%" scope="col">Structure</th>
           <th style="text-align:center;" scope="col">Count</th>
         </tr>
       </thead>
       <tbody>
         <tr
           style="background:rgba(0,0,0,.4)"
-          *ngFor="let item of flatStructure"
+          *ngFor="let item of dummyflatStructure"
         >
           <th
-            style="font-weight:500;"
+            style="font-weight:
+            500;"
             [style.paddingLeft]="item.level * 20 + 10 + 'px'"
           >
             {{ item.label }}
