@@ -14,14 +14,14 @@
           style="background:rgba(0,0,0,.4)"
           *ngFor="let item of flatStructure"
         >
-          <th
+          <td
             style="font-weight:
             500;"
             [style.paddingLeft]="item.level * 20 + 10 + 'px'"
           >
             {{ item.label }}
-          </th>
-          <th style="font-weight:500;text-align:center;">{{ item.count }}</th>
+          </td>
+          <td style="font-weight:500;text-align:center;">{{ item.count }}</td>
         </tr>
       </tbody>
     </table>
@@ -48,13 +48,25 @@
           style="background:rgba(0,0,0,.4)"
           *ngFor="let item of flatStructure"
         >
-          <th
-            style="font-weight:500;text-align:center;"
-            [style.background]="item.isLeaf == true ? 'white' : ''"
-            *ngFor="let metric of item.metrics"
-          >
-            {{ metric.value }}
-          </th>
+          <ng-template ngFor let-metric [ngForOf]="item.metrics">
+            <td
+              *ngIf="metric.value != null"
+              style="font-weight:500;text-align:center;"
+              [style.background]="item.isLeaf == true ? 'white' : ''"
+              (click)="triggerAreaField($event, item, metric)"
+            >
+              {{ metric.value }}
+            </td>
+            <td *ngIf="item.isLeaf && metric.value == null">
+              <input
+                [id]="'inputField' + metric.id"
+                [style.background]="'white'"
+                class="form-control"
+                type="text"
+                (blur)="calculateArea($event, item, metric)"
+              />
+            </td>
+          </ng-template>
         </tr>
       </tbody>
     </table>

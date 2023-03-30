@@ -944,6 +944,11 @@ export class AppComponent {
   };
 
   flatStructure = [];
+
+  ngOnInit() {
+    this.flatTree(this.structure.rootStructure, 0);
+  }
+
   scrollPos(event) {
     var rightScrollPos =
       document.getElementById('table-scroll-tasks').scrollTop;
@@ -954,15 +959,19 @@ export class AppComponent {
 
   flatTree(obj, l) {
     let level = l;
-    let x = {
+    let newObject = {
       level: level,
       id: obj.id,
       label: obj.label,
       count: obj.count,
-      metrics: [...obj.metrics],
+      metrics: [
+        ...obj.metrics.map((el) => {
+          return { ...el };
+        }),
+      ],
       isLeaf: obj.substructures.length == 0 ? true : false,
     };
-    this.flatStructure.push(x);
+    this.flatStructure.push(newObject);
     if (obj.substructures.length == 0) {
       return;
     } else {
@@ -972,8 +981,15 @@ export class AppComponent {
     }
   }
 
-  ngOnInit() {
-    this.flatTree(this.structure.rootStructure, 0);
-    console.log(this.dummyflatStructure);
+  triggerAreaField(event, item, metric) {
+    if (item.isLeaf) {
+      let initialVal = metric.value;
+      metric.value = null;
+      setTimeout(() => {
+        document.getElementById('inputField' + metric.id).focus();
+      });
+    }
   }
+  changeArea(){}
+  calculateArea(){}
 }
