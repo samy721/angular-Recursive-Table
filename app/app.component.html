@@ -1,146 +1,61 @@
-<div style="margin-top:50px">
-  <table
-    style="width:90%;margin-left:auto;margin-right:auto;margin-bottom:50px;"
+<div
+  style="margin-top:50px;max-height:500px;overflow:auto;display:flex;width:90%;margin-left:auto;margin-right:auto;"
+>
+  <div id="table-scroll-employees" style="width:50%;overflow:hidden">
+    <table class="table table-bordered">
+      <thead style="position:sticky;background:blue;color:white;top:-1px">
+        <tr>
+          <th style="width:70%" scope="col">Structure</th>
+          <th style="text-align:center;" scope="col">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="background:rgba(0,0,0,.4)"
+          *ngFor="let item of flatStructure"
+        >
+          <th
+            style="font-weight:500;"
+            [style.paddingLeft]="item.level * 20 + 10 + 'px'"
+          >
+            {{ item.label }}
+          </th>
+          <th style="font-weight:500;text-align:center;">{{ item.count }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div
+    id="table-scroll-tasks"
+    style="width:50%;overflow:auto"
+    (scroll)="scrollPos($event)"
   >
-    <tbody>
-      <tr>
-        <td>
-          <div class="flex just-cont-space-btwn align-items-center">
-            <p>Structure</p>
-            <button class="btn btn-outline-dark me-3" (click)="AddRow()">
-              +
-            </button>
-          </div>
-        </td>
-        <td style="min-width:100px;">Count</td>
-      </tr>
-      <tr (click)="expanded(item)" *ngFor="let item of items">
-        <td [style.padding-left]="item.index * 40 + 'px'">
-          <div [id]="item.id">
-            <ng-container *ngIf="item.name.length; else showInput">
-              <div
-                style="display:flex;gap:10px;margin-left:10px;align-items:center;"
-              >
-                <span
-                  *ngIf="item.children.length"
-                  class="material-symbols-outlined"
-                  style="font-size:21px;margin-right:-10px;margin-left:-5px;"
-                >
-                  {{ item.isInExpandState ? 'expand_more' : 'chevron_right' }}
-                </span>
-                <p style="font-size:18px;font-weight:500">{{ item.name }}</p>
-                <div class="context-menu" [id]="'context-menu' + item.id">
-                  <div
-                    (click)="AddChild($event, item)"
-                    class="item d-flex align-items-center gap-15"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size:20px"
-                    >
-                      add
-                    </span>
-                  </div>
-                  <div
-                    (click)="deleteItem($event, item)"
-                    class="item d-flex align-items-center gap-15"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size:20px"
-                    >
-                      delete
-                    </span>
-                  </div>
-                  <div
-                    (click)="EditItem($event, item)"
-                    class="item d-flex align-items-center gap-15"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size:20px"
-                    >
-                      edit
-                    </span>
-                  </div>
-                  <div
-                    *ngIf="item.children.length"
-                    (click)="Indent($event, item)"
-                    class="item d-flex align-items-center gap-15"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size:20px"
-                    >
-                      format_indent_increase
-                    </span>
-                  </div>
-                  <div
-                    *ngIf="item.parentId != null"
-                    (click)="UnIndent($event, item)"
-                    class="item d-flex align-items-center gap-15"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size:20px"
-                    >
-                      format_indent_decrease
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-            <ng-template #showInput>
-              <div
-                (click)="stopBubble($event)"
-                style="display:flex;gap:5px;align-items:center"
-              >
-                <input
-                  class="form-control"
-                  style="width:200px;margin:15px"
-                  type="text"
-                  [value]="title"
-                  (input)="AddName($event)"
-                />
-                <button
-                  class="btn btn-outline-dark me-3"
-                  (click)="changeName($event, item)"
-                  style="margin-right:10px;"
-                >
-                  +
-                </button>
-              </div>
-            </ng-template>
-          </div>
-        </td>
-        <td>
-          <ng-container *ngIf="item.count != null; else showCountInput">{{
-            item.count
-          }}</ng-container>
-          <ng-template #showCountInput>
-            <div
-              (click)="stopBubble($event)"
-              style="display:flex;gap:5px;align-items:center;justify-content:center;"
-            >
-              <input
-                class="form-control"
-                style="max-width:150px;margin:15px"
-                type="text"
-                [value]="title"
-                pattern="[0-9]"
-                (input)="AddCount($event)"
-              />
-              <button
-                class="btn btn-outline-dark me-3"
-                (click)="changeCount($event, item)"
-                style="margin-right:10px;"
-              >
-                +
-              </button>
-            </div>
-          </ng-template>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table table-bordered" style="margin:0">
+      <thead style="position:sticky;background:blue;color:white;top:-1px">
+        <tr>
+          <th
+            scope="col"
+            style="min-width:200px;text-align:center;"
+            *ngFor="let item of structure.metricItems"
+          >
+            {{ item.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          style="background:rgba(0,0,0,.4)"
+          *ngFor="let item of flatStructure"
+        >
+          <th
+            style="font-weight:500;text-align:center;"
+            [style.background]="item.isLeaf == true ? 'white' : ''"
+            *ngFor="let metric of item.metrics"
+          >
+            {{ metric.value }}
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
