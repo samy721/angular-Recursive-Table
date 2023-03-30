@@ -18,9 +18,9 @@ export class AppComponent {
       count: 1,
       metrics: {
         Doors: 160,
-        ca: 159000,
-        sa: 203600,
-        bua: 268000,
+        CA: 159000,
+        SA: 203600,
+        BUA: 268000,
         BalconyArea: 600,
       },
       substructures: [
@@ -29,9 +29,9 @@ export class AppComponent {
           count: 1,
           metrics: {
             Doors: 156,
-            ca: 153000,
-            sa: 195600,
-            bua: 258000,
+            CA: 153000,
+            SA: 195600,
+            BUA: 258000,
             BalconyArea: 600,
           },
           substructures: [
@@ -40,9 +40,9 @@ export class AppComponent {
               count: 1,
               metrics: {
                 Doors: 26,
-                ca: 25500,
-                sa: 32600,
-                bua: 43000,
+                CA: 25500,
+                SA: 32600,
+                BUA: 43000,
                 BalconyArea: 100,
               },
               substructures: [
@@ -51,9 +51,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 4,
-                    ca: 1500,
-                    sa: 2000,
-                    bua: 4000,
+                    CA: 1500,
+                    SA: 2000,
+                    BUA: 4000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -64,9 +64,9 @@ export class AppComponent {
                   count: 1,
                   metrics: {
                     Doors: 2,
-                    ca: 500,
-                    sa: 600,
-                    bua: 1000,
+                    CA: 500,
+                    SA: 600,
+                    BUA: 1000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -77,9 +77,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 8,
-                    ca: 11000,
-                    sa: 14000,
-                    bua: 17000,
+                    CA: 11000,
+                    SA: 14000,
+                    BUA: 17000,
                     BalconyArea: 50,
                   },
                   substructures: [
@@ -88,9 +88,9 @@ export class AppComponent {
                       count: 3,
                       metrics: {
                         Doors: 1,
-                        ca: 1000,
-                        sa: 1500,
-                        bua: 2000,
+                        CA: 1000,
+                        SA: 1500,
+                        BUA: 2000,
                         BalconyArea: 30,
                       },
                       substructures: [],
@@ -101,9 +101,9 @@ export class AppComponent {
                       count: 1,
                       metrics: {
                         Doors: 1,
-                        ca: 2000,
-                        sa: 2500,
-                        bua: 3000,
+                        CA: 2000,
+                        SA: 2500,
+                        BUA: 3000,
                         BalconyArea: 40,
                       },
                       substructures: [],
@@ -114,9 +114,9 @@ export class AppComponent {
                       count: 2,
                       metrics: {
                         Doors: 2,
-                        ca: 3000,
-                        sa: 3500,
-                        bua: 4000,
+                        CA: 3000,
+                        SA: 3500,
+                        BUA: 4000,
                         BalconyArea: 50,
                       },
                       substructures: [],
@@ -133,9 +133,9 @@ export class AppComponent {
               count: 2,
               metrics: {
                 Doors: 26,
-                ca: 25500,
-                sa: 32600,
-                bua: 43000,
+                CA: 25500,
+                SA: 32600,
+                BUA: 43000,
                 BalconyArea: 100,
               },
               substructures: [
@@ -144,9 +144,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 4,
-                    ca: 1500,
-                    sa: 2000,
-                    bua: 4000,
+                    CA: 1500,
+                    SA: 2000,
+                    BUA: 4000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -157,9 +157,9 @@ export class AppComponent {
                   count: 1,
                   metrics: {
                     Doors: 2,
-                    ca: 500,
-                    sa: 600,
-                    bua: 1000,
+                    CA: 500,
+                    SA: 600,
+                    BUA: 1000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -170,9 +170,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 8,
-                    ca: 11000,
-                    sa: 14000,
-                    bua: 17000,
+                    CA: 11000,
+                    SA: 14000,
+                    BUA: 17000,
                     BalconyArea: 50,
                   },
                   substructures: [
@@ -181,9 +181,9 @@ export class AppComponent {
                       count: 3,
                       metrics: {
                         Doors: 1,
-                        ca: 1000,
-                        sa: 1500,
-                        bua: 2000,
+                        CA: 1000,
+                        SA: 1500,
+                        BUA: 2000,
                         BalconyArea: 30,
                       },
                       substructures: [],
@@ -194,9 +194,9 @@ export class AppComponent {
                       count: 1,
                       metrics: {
                         Doors: 1,
-                        ca: 2000,
-                        sa: 2500,
-                        bua: 3000,
+                        CA: 2000,
+                        SA: 2500,
+                        BUA: 3000,
                         BalconyArea: 40,
                       },
                       substructures: [],
@@ -207,9 +207,9 @@ export class AppComponent {
                       count: 2,
                       metrics: {
                         Doors: 2,
-                        ca: 3000,
-                        sa: 3500,
-                        bua: 4000,
+                        CA: 3000,
+                        SA: 3500,
+                        BUA: 4000,
                         BalconyArea: 50,
                       },
                       substructures: [],
@@ -226,9 +226,9 @@ export class AppComponent {
               count: 3,
               metrics: {
                 Doors: 26,
-                ca: 25500,
-                sa: 32600,
-                bua: 43000,
+                CA: 25500,
+                SA: 32600,
+                BUA: 43000,
                 BalconyArea: 100,
               },
               substructures: [
@@ -237,9 +237,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 4,
-                    ca: 1500,
-                    sa: 2000,
-                    bua: 4000,
+                    CA: 1500,
+                    SA: 2000,
+                    BUA: 4000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -250,9 +250,9 @@ export class AppComponent {
                   count: 1,
                   metrics: {
                     Doors: 2,
-                    ca: 500,
-                    sa: 600,
-                    bua: 1000,
+                    CA: 500,
+                    SA: 600,
+                    BUA: 1000,
                     BalconyArea: 0,
                   },
                   substructures: [],
@@ -263,9 +263,9 @@ export class AppComponent {
                   count: 2,
                   metrics: {
                     Doors: 8,
-                    ca: 11000,
-                    sa: 14000,
-                    bua: 17000,
+                    CA: 11000,
+                    SA: 14000,
+                    BUA: 17000,
                     BalconyArea: 50,
                   },
                   substructures: [
@@ -274,9 +274,9 @@ export class AppComponent {
                       count: 3,
                       metrics: {
                         Doors: 1,
-                        ca: 1000,
-                        sa: 1500,
-                        bua: 2000,
+                        CA: 1000,
+                        SA: 1500,
+                        BUA: 2000,
                         BalconyArea: 30,
                       },
                       substructures: [],
@@ -287,9 +287,9 @@ export class AppComponent {
                       count: 1,
                       metrics: {
                         Doors: 1,
-                        ca: 2000,
-                        sa: 2500,
-                        bua: 3000,
+                        CA: 2000,
+                        SA: 2500,
+                        BUA: 3000,
                         BalconyArea: 40,
                       },
                       substructures: [],
@@ -300,9 +300,9 @@ export class AppComponent {
                       count: 2,
                       metrics: {
                         Doors: 2,
-                        ca: 3000,
-                        sa: 3500,
-                        bua: 4000,
+                        CA: 3000,
+                        SA: 3500,
+                        BUA: 4000,
                         BalconyArea: 50,
                       },
                       substructures: [],
@@ -364,6 +364,44 @@ export class AppComponent {
   ngOnInit() {
     this.flatTree(this.structure.rootStructure, 0, null);
     console.log(this.flatStructure);
+    this.addScrollableEvents();
+  }
+  addScrollableEvents() {
+    var MOUSE_OVER = false;
+    document
+      .getElementById('tableWrap')
+      .addEventListener('wheel', function (e) {
+        if (MOUSE_OVER) {
+          if (e.preventDefault) {
+            e.preventDefault();
+          }
+          e.returnValue = false;
+          return false;
+        }
+      });
+
+    document
+      .getElementById('table-scroll-employees')
+      .addEventListener('mouseenter', function () {
+        MOUSE_OVER = true;
+      });
+    document
+      .getElementById('table-scroll-employees')
+      .addEventListener('mouseleave', function () {
+        MOUSE_OVER = false;
+      });
+
+    document
+      .getElementById('table-scroll-employees')
+      .addEventListener('mousewheel', function (e: WheelEvent) {
+        var delta = e.deltaY;
+        if (delta > 0) {
+          document.getElementById('table-scroll-tasks').scrollBy(0, 30);
+        } else {
+          //go down
+          document.getElementById('table-scroll-tasks').scrollBy(0, -30);
+        }
+      });
   }
 
   scrollPos(event) {
@@ -411,10 +449,10 @@ export class AppComponent {
     let int = Number(event.target.value.trim());
     if (int > -1) {
       metric.value = int;
-      this.calculateArea(item.parentId, metric.label);
+      this.CAlculateArea(item.parentId, metric.label);
     }
   }
-  calculateArea(parentId, label) {
+  CAlculateArea(parentId, label) {
     let sum = 0;
     if (parentId == null) {
       return;
@@ -437,13 +475,13 @@ export class AppComponent {
             el.value = sum;
           }
         });
-        this.calculateArea(e.parentId, label);
+        this.CAlculateArea(e.parentId, label);
       }
     });
   }
   flatMetric(metric) {
     let objList = [];
-    if (true) {
+    if (metric == null) {
       this.structure.metricItems.forEach((e) => {
         let x = {
           label: e.label,
@@ -453,14 +491,14 @@ export class AppComponent {
         objList.push(x);
       });
     } else {
-      for (let key in metric) {
+      this.structure.metricItems.forEach((e) => {
         let x = {
-          label: key,
-          value: metric[key],
+          label: e.label,
+          value: metric[e.label],
           id: nanoid(),
         };
         objList.push(x);
-      }
+      });
     }
     return objList;
   }
