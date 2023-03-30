@@ -449,10 +449,10 @@ export class AppComponent {
     let int = Number(event.target.value.trim());
     if (int > -1) {
       metric.value = int;
-      this.CAlculateArea(item.parentId, metric.label);
+      this.calculateArea(item.parentId, metric.label);
     }
   }
-  CAlculateArea(parentId, label) {
+  calculateArea(parentId, label) {
     let sum = 0;
     if (parentId == null) {
       return;
@@ -475,7 +475,7 @@ export class AppComponent {
             el.value = sum;
           }
         });
-        this.CAlculateArea(e.parentId, label);
+        this.calculateArea(e.parentId, label);
       }
     });
   }
