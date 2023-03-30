@@ -14,916 +14,309 @@ export let prop: Object[] = [];
 export class AppComponent {
   structure = {
     rootStructure: {
-      label: 'All',
+      label: 'PT 1',
       count: 1,
-      metrics: [
-        {
-          label: 'BUA',
-          unit: 'sqft',
-          id: nanoid(),
-          value: 4000,
-        },
-        {
-          label: 'SA',
-          unit: 'sqft',
-          id: nanoid(),
-          value: 3500,
-        },
-        {
-          label: 'CA',
-          unit: 'sqft',
-          id: nanoid(),
-          value: 3000,
-        },
-        {
-          label: 'Doors',
-          unit: 'Nos',
-          id: nanoid(),
-          value: 2,
-        },
-        {
-          label: 'balconyArea',
-          unit: 'sqft',
-          id: nanoid(),
-          value: 50,
-        },
-      ],
+      metrics: {
+        Doors: 160,
+        ca: 159000,
+        sa: 203600,
+        bua: 268000,
+        BalconyArea: 600,
+      },
       substructures: [
         {
           label: 'Main Building Complex',
           count: 1,
-          metrics: [
-            {
-              label: 'BUA',
-              unit: 'sqft',
-              id: nanoid(),
-              value: 4000,
-            },
-            {
-              label: 'SA',
-              unit: 'sqft',
-              id: nanoid(),
-              value: 3500,
-            },
-            {
-              label: 'CA',
-              unit: 'sqft',
-              id: nanoid(),
-              value: 3000,
-            },
-            {
-              label: 'Doors',
-              unit: 'Nos',
-              id: nanoid(),
-              value: 2,
-            },
-            {
-              label: 'balconyArea',
-              unit: 'sqft',
-              id: nanoid(),
-              value: 50,
-            },
-          ],
+          metrics: {
+            Doors: 156,
+            ca: 153000,
+            sa: 195600,
+            bua: 258000,
+            BalconyArea: 600,
+          },
           substructures: [
             {
               label: 'Residential Tower GOT',
               count: 1,
-              metrics: [
-                {
-                  label: 'BUA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 4000,
-                },
-                {
-                  label: 'SA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3500,
-                },
-                {
-                  label: 'CA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3000,
-                },
-                {
-                  label: 'Doors',
-                  unit: 'Nos',
-                  id: nanoid(),
-                  value: 2,
-                },
-                {
-                  label: 'balconyArea',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 50,
-                },
-              ],
+              metrics: {
+                Doors: 26,
+                ca: 25500,
+                sa: 32600,
+                bua: 43000,
+                BalconyArea: 100,
+              },
               substructures: [
                 {
                   label: 'Stairs',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 4,
+                    ca: 1500,
+                    sa: 2000,
+                    bua: 4000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
                   count: 1,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 2,
+                    ca: 500,
+                    sa: 600,
+                    bua: 1000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 8,
+                    ca: 11000,
+                    sa: 14000,
+                    bua: 17000,
+                    BalconyArea: 50,
+                  },
                   substructures: [
                     {
                       label: '1BHK',
                       count: 3,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 1000,
+                        sa: 1500,
+                        bua: 2000,
+                        BalconyArea: 30,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
                       count: 1,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 2000,
+                        sa: 2500,
+                        bua: 3000,
+                        BalconyArea: 40,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
                       count: 2,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 2,
+                        ca: 3000,
+                        sa: 3500,
+                        bua: 4000,
+                        BalconyArea: 50,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                   ],
-                  id: nanoid(),
                 },
               ],
-              id: nanoid(),
             },
             {
               label: 'Iconic Tower',
               count: 2,
-              metrics: [
-                {
-                  label: 'BUA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 4000,
-                },
-                {
-                  label: 'SA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3500,
-                },
-                {
-                  label: 'CA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3000,
-                },
-                {
-                  label: 'Doors',
-                  unit: 'Nos',
-                  id: nanoid(),
-                  value: 2,
-                },
-                {
-                  label: 'balconyArea',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 50,
-                },
-              ],
+              metrics: {
+                Doors: 26,
+                ca: 25500,
+                sa: 32600,
+                bua: 43000,
+                BalconyArea: 100,
+              },
               substructures: [
                 {
                   label: 'Stairs',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 4,
+                    ca: 1500,
+                    sa: 2000,
+                    bua: 4000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
                   count: 1,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 2,
+                    ca: 500,
+                    sa: 600,
+                    bua: 1000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 8,
+                    ca: 11000,
+                    sa: 14000,
+                    bua: 17000,
+                    BalconyArea: 50,
+                  },
                   substructures: [
                     {
                       label: '1BHK',
                       count: 3,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 1000,
+                        sa: 1500,
+                        bua: 2000,
+                        BalconyArea: 30,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
                       count: 1,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 2000,
+                        sa: 2500,
+                        bua: 3000,
+                        BalconyArea: 40,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
                       count: 2,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 2,
+                        ca: 3000,
+                        sa: 3500,
+                        bua: 4000,
+                        BalconyArea: 50,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                   ],
                 },
               ],
-              id: nanoid(),
             },
             {
               label: 'Super Hero Tower',
               count: 3,
-              metrics: [
-                {
-                  label: 'BUA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 4000,
-                },
-                {
-                  label: 'SA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3500,
-                },
-                {
-                  label: 'CA',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 3000,
-                },
-                {
-                  label: 'Doors',
-                  unit: 'Nos',
-                  id: nanoid(),
-                  value: 2,
-                },
-                {
-                  label: 'balconyArea',
-                  unit: 'sqft',
-                  id: nanoid(),
-                  value: 50,
-                },
-              ],
+              metrics: {
+                Doors: 26,
+                ca: 25500,
+                sa: 32600,
+                bua: 43000,
+                BalconyArea: 100,
+              },
               substructures: [
                 {
                   label: 'Stairs',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 4,
+                    ca: 1500,
+                    sa: 2000,
+                    bua: 4000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
                   count: 1,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 2,
+                    ca: 500,
+                    sa: 600,
+                    bua: 1000,
+                    BalconyArea: 0,
+                  },
                   substructures: [],
-                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
                   count: 2,
-                  metrics: [
-                    {
-                      label: 'BUA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 4000,
-                    },
-                    {
-                      label: 'SA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3500,
-                    },
-                    {
-                      label: 'CA',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 3000,
-                    },
-                    {
-                      label: 'Doors',
-                      unit: 'Nos',
-                      id: nanoid(),
-                      value: 2,
-                    },
-                    {
-                      label: 'balconyArea',
-                      unit: 'sqft',
-                      id: nanoid(),
-                      value: 50,
-                    },
-                  ],
+                  metrics: {
+                    Doors: 8,
+                    ca: 11000,
+                    sa: 14000,
+                    bua: 17000,
+                    BalconyArea: 50,
+                  },
                   substructures: [
                     {
                       label: '1BHK',
                       count: 3,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 1000,
+                        sa: 1500,
+                        bua: 2000,
+                        BalconyArea: 30,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
                       count: 1,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 1,
+                        ca: 2000,
+                        sa: 2500,
+                        bua: 3000,
+                        BalconyArea: 40,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
                       count: 2,
-                      metrics: [
-                        {
-                          label: 'BUA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 4000,
-                        },
-                        {
-                          label: 'SA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3500,
-                        },
-                        {
-                          label: 'CA',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 3000,
-                        },
-                        {
-                          label: 'Doors',
-                          unit: 'Nos',
-                          id: nanoid(),
-                          value: 2,
-                        },
-                        {
-                          label: 'balconyArea',
-                          unit: 'sqft',
-                          id: nanoid(),
-                          value: 50,
-                        },
-                      ],
+                      metrics: {
+                        Doors: 2,
+                        ca: 3000,
+                        sa: 3500,
+                        bua: 4000,
+                        BalconyArea: 50,
+                      },
                       substructures: [],
-                      id: nanoid(),
                     },
                   ],
-                  id: nanoid(),
                 },
               ],
-              id: nanoid(),
             },
           ],
-          id: nanoid(),
         },
       ],
-      id: nanoid(),
     },
     metricItems: [
       {
         label: 'BUA',
         unit: 'sqft',
-        id: nanoid(),
-        value: null,
       },
       {
         label: 'SA',
         unit: 'sqft',
-        id: nanoid(),
-        value: null,
       },
       {
         label: 'CA',
         unit: 'sqft',
-        id: nanoid(),
-        value: null,
       },
       {
         label: 'Doors',
         unit: 'Nos',
-        id: nanoid(),
-        value: null,
       },
       {
         label: 'BalconyArea',
         unit: 'sqft',
-        id: nanoid(),
-        value: null,
       },
     ],
     summary: {
@@ -946,7 +339,8 @@ export class AppComponent {
   flatStructure = [];
 
   ngOnInit() {
-    this.flatTree(this.structure.rootStructure, 0);
+    this.flatTree(this.structure.rootStructure, 0, null);
+    console.log(this.flatStructure);
   }
 
   scrollPos(event) {
@@ -957,18 +351,15 @@ export class AppComponent {
       rightScrollPos;
   }
 
-  flatTree(obj, l) {
+  flatTree(obj, l, parentId) {
     let level = l;
     let newObject = {
       level: level,
       id: obj.id,
       label: obj.label,
       count: obj.count,
-      metrics: [
-        ...obj.metrics.map((el) => {
-          return { ...el };
-        }),
-      ],
+      metrics: [...this.flatMetric(obj.metrics)],
+      parentId: parentId,
       isLeaf: obj.substructures.length == 0 ? true : false,
     };
     this.flatStructure.push(newObject);
@@ -976,7 +367,7 @@ export class AppComponent {
       return;
     } else {
       obj.substructures.forEach((e) => {
-        this.flatTree(e, level + 1);
+        this.flatTree(e, level + 1, obj.id);
       });
     }
   }
@@ -987,9 +378,35 @@ export class AppComponent {
       metric.value = null;
       setTimeout(() => {
         document.getElementById('inputField' + metric.id).focus();
+        (<HTMLInputElement>(
+          document.getElementById('inputField' + metric.id)
+        )).value = initialVal;
       });
     }
   }
-  changeArea(){}
-  calculateArea(){}
+  changeArea() {}
+  calculateArea() {}
+  flatMetric(metric) {
+    let objList = [];
+    if (true) {
+      this.structure.metricItems.forEach((e) => {
+        let x = {
+          label: e.label,
+          value: 0,
+          id: nanoid(),
+        };
+        objList.push(x);
+      });
+    } else {
+      for (let key in metric) {
+        let x = {
+          label: key,
+          value: metric[key],
+          id: nanoid(),
+        };
+        objList.push(x);
+      }
+    }
+    return objList;
+  }
 }
