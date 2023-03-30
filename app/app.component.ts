@@ -57,6 +57,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
@@ -69,6 +70,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
@@ -92,6 +94,7 @@ export class AppComponent {
                         BalconyArea: 30,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
@@ -104,6 +107,7 @@ export class AppComponent {
                         BalconyArea: 40,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
@@ -116,10 +120,13 @@ export class AppComponent {
                         BalconyArea: 50,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                   ],
+                  id: nanoid(),
                 },
               ],
+              id: nanoid(),
             },
             {
               label: 'Iconic Tower',
@@ -143,6 +150,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
@@ -155,6 +163,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
@@ -178,6 +187,7 @@ export class AppComponent {
                         BalconyArea: 30,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
@@ -190,6 +200,7 @@ export class AppComponent {
                         BalconyArea: 40,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
@@ -202,10 +213,13 @@ export class AppComponent {
                         BalconyArea: 50,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                   ],
+                  id: nanoid(),
                 },
               ],
+              id: nanoid(),
             },
             {
               label: 'Super Hero Tower',
@@ -229,6 +243,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Elevators',
@@ -241,6 +256,7 @@ export class AppComponent {
                     BalconyArea: 0,
                   },
                   substructures: [],
+                  id: nanoid(),
                 },
                 {
                   label: 'Floors',
@@ -264,6 +280,7 @@ export class AppComponent {
                         BalconyArea: 30,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '2BHK',
@@ -276,6 +293,7 @@ export class AppComponent {
                         BalconyArea: 40,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                     {
                       label: '3BHK',
@@ -288,14 +306,19 @@ export class AppComponent {
                         BalconyArea: 50,
                       },
                       substructures: [],
+                      id: nanoid(),
                     },
                   ],
+                  id: nanoid(),
                 },
               ],
+              id: nanoid(),
             },
           ],
+          id: nanoid(),
         },
       ],
+      id: nanoid(),
     },
     metricItems: [
       {
@@ -359,7 +382,7 @@ export class AppComponent {
       label: obj.label,
       count: obj.count,
       metrics: [...this.flatMetric(obj.metrics)],
-      parentId: parentId,
+      parentId,
       isLeaf: obj.substructures.length == 0 ? true : false,
     };
     this.flatStructure.push(newObject);
@@ -384,8 +407,40 @@ export class AppComponent {
       });
     }
   }
-  changeArea() {}
-  calculateArea() {}
+  changeArea(event, item, metric) {
+    let int = Number(event.target.value.trim());
+    if (int > -1) {
+      metric.value = int;
+      this.calculateArea(item.parentId, metric.label);
+    }
+  }
+  calculateArea(parentId, label) {
+    let sum = 0;
+    if (parentId == null) {
+      return;
+    }
+    this.flatStructure.forEach((e) => {
+      if (e.parentId === parentId) {
+        let value;
+        e.metrics.forEach((el) => {
+          if (el.label === label) {
+            value = el.value;
+          }
+        });
+        sum += e.count * value;
+      }
+    });
+    this.flatStructure.forEach((e) => {
+      if (e.id === parentId) {
+        e.metrics.forEach((el) => {
+          if (el.label === label) {
+            el.value = sum;
+          }
+        });
+        this.calculateArea(e.parentId, label);
+      }
+    });
+  }
   flatMetric(metric) {
     let objList = [];
     if (true) {
