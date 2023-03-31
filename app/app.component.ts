@@ -364,7 +364,6 @@ export class AppComponent {
   ngOnInit() {
     this.flatTree(this.structure.rootStructure, 0, null);
     console.log(this.flatStructure);
-    console.log(JSON.stringify(this.buildTree(this.flatStructure)));
     this.addScrollableEvents();
   }
   addScrollableEvents() {
