@@ -364,6 +364,7 @@ export class AppComponent {
   ngOnInit() {
     this.flatTree(this.structure.rootStructure, 0, null);
     console.log(this.flatStructure);
+    console.log(JSON.stringify(this.buildTree(this.flatStructure)));
     this.addScrollableEvents();
   }
   addScrollableEvents() {
@@ -501,5 +502,31 @@ export class AppComponent {
       });
     }
     return objList;
+  }
+  buildTree(data, parentId = null) {
+    var tree = {};
+    data
+      .filter((item) => item.parentId === parentId)
+      .forEach((item) => {
+        tree[item.id] = {
+          label: item.label,
+          count: item.count,
+          metrics: item.metrics.reduce((acc, metric) => {
+            acc[metric.label] = metric.value;
+            return acc;
+          }, {}),
+          substructures: [],
+          id: item.id,
+        };
+        var substructures = this.buildTree(data, item.id);
+        if (Object.keys(substructures).length > 0) {
+          tree[item.id].substructures = substructures;
+        }
+      });
+    let treeValues = [];
+    Object.keys(tree).map((e) => {
+      treeValues.push(tree[e]);
+    });
+    return parentId == null ? treeValues[0] : treeValues;
   }
 }
