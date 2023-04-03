@@ -341,6 +341,10 @@ export class AppComponent {
         label: 'BalconyArea',
         unit: 'sqft',
       },
+      {
+        label: 'Basement',
+        unit: 'sqft',
+      },
     ],
     summary: {
       label: 'TBUA',
@@ -494,7 +498,7 @@ export class AppComponent {
       this.structure.metricItems.forEach((e) => {
         let x = {
           label: e.label,
-          value: metric[e.label],
+          value: metric[e.label] != undefined ? metric[e.label] : 0,
           id: nanoid(),
         };
         objList.push(x);
